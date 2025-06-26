@@ -35,3 +35,6 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.lsp.enable('pyright')
+vim.lsp.enable('ansiblels')
