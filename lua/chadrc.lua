@@ -19,6 +19,6 @@ M.ui = {
 --       tabufline = {
 --          lazyload = false
 --      }
---}
+-- }
 
 return M
