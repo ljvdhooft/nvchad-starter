@@ -37,6 +37,7 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
+    branch = 'master',
     opts = {
       filters = {
         dotfiles = false, -- ✅ Show dotfiles
