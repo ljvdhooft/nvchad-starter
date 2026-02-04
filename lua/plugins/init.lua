@@ -63,6 +63,13 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
+  {
+    "szw/vim-maximizer",
+    cmd = { "MaximizerToggle", },
+    keys = {
+      { "<leader>z", "<cmd>MaximizerToggle<cr>", desc = "Toggle window maximizer" }
+    },
+  },
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
