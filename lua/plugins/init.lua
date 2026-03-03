@@ -125,4 +125,13 @@ return {
       { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "Repo History" },
     },
   },
+  {
+    "OXY2DEV/markview.nvim",
+    ft = "markdown",
+
+    keys = {
+      { "<leader>ms", "<cmd>Markview splitToggle<CR>", desc = "Toggle Markview Split", ft = "markdown", },
+      { "<leader>mt", "<cmd>Markview Toggle<CR>", desc = "Toggle Markview", ft = "markdown", },
+    },
+  },
 }
