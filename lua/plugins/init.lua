@@ -97,10 +97,9 @@ return {
       vim.opt.foldlevelstart = 99
       vim.opt.foldenable = true
 
-      -- Use ufo provider
       vim.opt.foldmethod = "manual"
       vim.opt.foldexpr = "v:lua.require'ufo'.foldexpr()"
-      -- vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldinner: ,foldclose:'
+      vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
       require("ufo").setup({
         provider_selector = function(_, filetype, buftype)
@@ -113,6 +112,30 @@ return {
       { "zR", function() require("ufo").openAllFolds() end, desc = "Open all folds (ufo)" },
       { "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds (ufo)" },
     },
+  },
+  {
+    "luukvbaal/statuscol.nvim", lazy = false,
+    config = function()
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup({
+        segments = {
+          -- { text = { "%s" }, click = "v:lua.ScSa" },
+          {
+            sign = {
+              namespace = { "gitsigns" },
+              maxwidth = 1,
+            },
+            click = "v:lua.ScSa",
+          },
+          { text = { builtin.lnumfunc }, click = "v:lua.ScLa", },
+          {
+            text = { " ", builtin.foldfunc, " " },
+            condition = { builtin.not_empty, true, builtin.not_empty },
+            click = "v:lua.ScFa"
+          },
+        }
+      })
+    end,
   },
   {
     "sindrets/diffview.nvim",
