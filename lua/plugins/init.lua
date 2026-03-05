@@ -138,6 +138,33 @@ return {
     end,
   },
   {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      preview_config = {
+        focusable = true,
+        border = "rounded",
+      },
+    },
+    keys = {
+      {
+        "<leader>gp",
+        function()
+          local gs = require("gitsigns")
+          gs.preview_hunk()
+
+          -- focus the preview window
+          vim.schedule(function()
+            vim.cmd("wincmd w")
+          end)
+        end,
+        desc = "Preview git hunk",
+      },
+      -- { "<leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Git preview hunk" },
+      { "<leader>gs", function() require("gitsigns").stage_hunk() end, desc = "Git stage hunk" },
+      { "<leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Git reset hunk" },
+    },
+  },
+  {
     "sindrets/diffview.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
