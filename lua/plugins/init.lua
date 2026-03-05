@@ -139,6 +139,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
+    lazy = false,
     opts = {
       preview_config = {
         focusable = true,
@@ -149,19 +150,26 @@ return {
       {
         "<leader>gp",
         function()
-          local gs = require("gitsigns")
-          gs.preview_hunk()
-
-          -- focus the preview window
-          vim.schedule(function()
-            vim.cmd("wincmd w")
-          end)
+          require("user.gitsigns").preview_hunk_window()
         end,
-        desc = "Preview git hunk",
+        desc = "Preview git hunk (interactive)",
       },
-      -- { "<leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Git preview hunk" },
-      { "<leader>gs", function() require("gitsigns").stage_hunk() end, desc = "Git stage hunk" },
-      { "<leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Git reset hunk" },
+      { "<leader>gs", function() require("user.gitsigns").action_from_preview("stage_hunk") end, desc = "Git stage hunk" },
+      { "<leader>gr", function() require("user.gitsigns").action_from_preview("reset_hunk") end, desc = "Git reset hunk" },
+      {
+        "<leader>gN",
+        function()
+          require("user.gitsigns").move_hunk_and_reopen_preview("prev")
+        end,
+        desc = "Next git hunk",
+      },
+      {
+        "<leader>gn",
+        function()
+          require("user.gitsigns").move_hunk_and_reopen_preview("next")
+        end,
+        desc = "Next git hunk",
+      },
     },
   },
   {
