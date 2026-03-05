@@ -1,10 +1,9 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre',
     opts = require "configs.conform",
   },
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "williamboman/mason.nvim",
     opts = {
@@ -70,9 +69,6 @@ return {
       { "<leader>z", "<cmd>MaximizerToggle<cr>", desc = "Toggle window maximizer" }
     },
   },
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
-
   {
   	"nvim-treesitter/nvim-treesitter",
   	opts = {
