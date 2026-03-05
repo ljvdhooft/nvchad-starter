@@ -133,6 +133,8 @@ return {
             condition = { builtin.not_empty, true, builtin.not_empty },
             click = "v:lua.ScFa"
           },
+          { text = { "┃" },
+        },
         }
       })
     end,
