@@ -85,35 +85,6 @@ return {
   	},
   },
   {
-    "kevinhwang91/nvim-ufo",
-    dependencies = {
-      "kevinhwang91/promise-async",
-    },
-    event = "BufReadPost",
-    config = function()
-      -- Recommended settings
-      vim.opt.foldcolumn = "1"
-      vim.opt.foldlevel = 99
-      vim.opt.foldlevelstart = 99
-      vim.opt.foldenable = true
-
-      vim.opt.foldmethod = "manual"
-      vim.opt.foldexpr = "v:lua.require'ufo'.foldexpr()"
-      vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-
-      require("ufo").setup({
-        provider_selector = function(_, filetype, buftype)
-          return { "treesitter", "indent" }
-        end,
-      })
-
-    end,
-    keys = {
-      { "zR", function() require("ufo").openAllFolds() end, desc = "Open all folds (ufo)" },
-      { "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds (ufo)" },
-    },
-  },
-  {
     "luukvbaal/statuscol.nvim", lazy = false,
     config = function()
       local builtin = require("statuscol.builtin")
