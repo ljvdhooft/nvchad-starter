@@ -70,15 +70,19 @@ return {
     },
   },
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css"
-  		},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "lua",
+        "vim",
+        "terraform",
+        "hcl",
+        "docker_compose",
+        "yaml",
+      },
       highlight = { enable = true },
       indent = { enable = true },
-  	},
+    },
   },
   {
     "luukvbaal/statuscol.nvim", lazy = false,
