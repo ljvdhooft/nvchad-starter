@@ -7,6 +7,7 @@ local o = vim.o
 o.number = true
 o.relativenumber = true
 o.diffopt = "internal,filler,closeoff"
+o.scrolloff = 1000
 o.foldenable = false
 o.foldmethod = "expr"
 o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
