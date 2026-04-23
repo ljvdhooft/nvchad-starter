@@ -16,3 +16,4 @@ map("n", "<A-h>", function() require("nvchad.tabufline").move_buf(-1) end, { des
 map("n", "<A-l>", function() require("nvchad.tabufline").move_buf(1) end, { desc = "Move buffer right" })
 map("n", "g<A-h>", "<cmd>tabmove -1<CR>", { desc = "Move tab left" })
 map("n", "g<A-l>", "<cmd>tabmove +1<CR>", { desc = "Move tab right" })
+map("n", "gx", "<cmd>tabclose<CR>", { desc = "Close tab" })
