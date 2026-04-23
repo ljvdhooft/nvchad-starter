@@ -118,6 +118,7 @@ return {
         focusable = true,
         border = "rounded",
       },
+      watch_gitdir = { interval = 1000 },
     },
     keys = {
       {
@@ -146,6 +147,20 @@ return {
     },
   },
   {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
+    cmd = "Neogit",
+    opts = {},
+    keys = {
+      { "<leader>gc", function() require("neogit").action("commit", "commit")() end, desc = "Git commit" },
+      { "<leader>gP", function() require("neogit").action("push", "to_upstream")() end, desc = "Git push upstream" },
+      { "<leader>gO", "<cmd>Neogit<CR>", desc = "Neogit open" },
+    },
+  },
+  {
     "sindrets/diffview.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
@@ -164,5 +179,9 @@ return {
       { "<leader>ms", "<cmd>Markview splitToggle<CR>", desc = "Toggle Markview Split", ft = "markdown", },
       { "<leader>mt", "<cmd>Markview Toggle<CR>", desc = "Toggle Markview", ft = "markdown", },
     },
+  },
+  {
+    "ThePrimeagen/vim-be-good",
+    cmd = "VimBeGood",
   },
 }
