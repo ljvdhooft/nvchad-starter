@@ -155,8 +155,8 @@ return {
     cmd = "Neogit",
     opts = {},
     keys = {
-      { "<leader>gc", function() require("neogit").action("commit", "commit")() end, desc = "Git commit" },
-      { "<leader>gP", function() require("neogit").action("push", "to_upstream")() end, desc = "Git push upstream" },
+      { "<leader>gc", function() require("user.neogit").action("commit", "commit")() end, desc = "Git commit" },
+      { "<leader>gP", function() require("user.neogit").action("push", "to_upstream")() end, desc = "Git push upstream" },
       { "<leader>gO", "<cmd>Neogit<CR>", desc = "Neogit open" },
     },
   },
