@@ -270,28 +270,36 @@ Four layers, roughly easiest → deepest:
 
 ### Your custom maps (lua/mappings.lua, lua/plugins)
 
-| Key                                  | Mode     | Description                                |
-| ------------------------------------ | -------- | ------------------------------------------ |
-| `jk`                                 | i        | escape                                     |
-| `<C-h/j/k/l>`                        | n        | tmux/vim navigation L/D/U/R                |
-| `<C-\>`                              | n        | tmux previous pane                         |
-| `gc`                                 | n        | new tab                                    |
-| `gx`                                 | n        | close tab                                  |
-| `g<A-h>` `g<A-l>`                    | n        | move tab left / right                      |
-| `<A-h>` `<A-l>`                      | n        | move buffer left / right                   |
-| `d dd D / c cc C / x`                | n,v      | delete/change to black hole (no clipboard) |
-| `<leader>d` `<leader>dd` `<leader>D` | n,v      | delete to system clipboard                 |
-| `<leader>z`                          | n        | toggle window maximizer                    |
-| `<A-k>`                              | n (tree) | NvimTree file info popup                   |
-| `<leader>gp`                         | n        | preview git hunk (interactive)             |
-| `<leader>gs` `<leader>gr`            | n        | git stage / reset hunk                     |
-| `<leader>gn` `<leader>gN`            | n        | next / prev git hunk                       |
-| `<leader>gc`                         | n        | Neogit commit                              |
-| `<leader>gP`                         | n        | git push upstream                          |
-| `<leader>gO`                         | n        | Neogit open                                |
-| `<leader>gd` `<leader>gq`            | n        | Diffview open / close                      |
-| `<leader>gh` `<leader>gH`            | n        | Diffview file / repo history               |
-| `<leader>ms` `<leader>mt`            | n        | Markview split / toggle                    |
+| Key                                  | Mode     | Description                                                  |
+| ------------------------------------ | -------- | ------------------------------------------------------------ |
+| `jk`                                 | i        | escape                                                       |
+| `<C-h/j/k/l>`                        | n        | tmux/vim navigation L/D/U/R                                  |
+| `<C-\>`                              | n        | tmux previous pane                                           |
+| `gc`                                 | n        | new tab                                                      |
+| `gx`                                 | n        | close tab                                                    |
+| `g<A-h>` `g<A-l>`                    | n        | move tab left / right                                        |
+| `<A-h>` `<A-l>`                      | n        | move buffer left / right                                     |
+| `d dd D / c cc C / x`                | n,v      | delete/change to black hole (no clipboard)                   |
+| `<leader>d` `<leader>dd` `<leader>D` | n,v      | delete to system clipboard                                   |
+| `<leader>z`                          | n        | toggle window maximizer                                      |
+| `<A-k>`                              | n (tree) | NvimTree file info popup                                     |
+| `<leader>gp`                         | n        | preview git hunk (interactive)                               |
+| `<leader>gs` `<leader>gr`            | n        | git stage / reset hunk                                       |
+| `<leader>gn` `<leader>gN`            | n        | next / prev git hunk                                         |
+| `<leader>gc`                         | n        | Neogit commit                                                |
+| `<leader>gP`                         | n        | git push upstream                                            |
+| `<leader>gO`                         | n        | Neogit open                                                  |
+| `<leader>gd` `<leader>gq`            | n        | Diffview open / close                                        |
+| `<leader>gh` `<leader>gH`            | n        | Diffview file / repo history                                 |
+| `<leader>ms` `<leader>mt`            | n        | Markview split / toggle                                      |
+| `K`                                  | n        | LSP hover (press again to focus, then `q`)                   |
+| `gr`                                 | n        | LSP references (Telescope, falls back if unsupported)        |
+| `gd`                                 | n        | LSP definitions (Telescope, falls back if unsupported)       |
+| `gi`                                 | n        | LSP implementations (Telescope, falls back if unsupported)   |
+| `<leader>fs`                         | n        | LSP document symbols (Telescope, falls back if unsupported)  |
+| `<leader>ws`                         | n        | LSP workspace symbols (Telescope, falls back if unsupported) |
+| `<leader>ds`                         | n        | buffer diagnostics (Telescope)                               |
+| `<leader>wd`                         | n        | workspace diagnostics (Telescope)                            |
 
 ### NvChad defaults — editor / UI
 
@@ -343,11 +351,12 @@ Four layers, roughly easiest → deepest:
 
 | Key                                    | Description                          |
 | -------------------------------------- | ------------------------------------ |
-| `gd` `gD`                              | go to definition / declaration       |
+| `gD`                                   | go to declaration                    |
 | `<leader>D`                            | type definition                      |
 | `<leader>ra`                           | rename (NvRenamer)                   |
-| `<leader>ds`                           | diagnostics to loclist               |
 | `<leader>wa` `<leader>wr` `<leader>wl` | add / remove / list workspace folder |
+
+`gd` and `<leader>ds` are overridden by your config — see "Your custom maps" above (Telescope-backed).
 
 ### NvChad — WhichKey
 
