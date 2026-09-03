@@ -1,5 +1,12 @@
 return {
   {
+    -- NvChad lazy-loads which-key on "c", which clobbers the c -> "_c mapping
+    "folke/which-key.nvim",
+    keys = function()
+      return { "<leader>", "<c-w>", '"', "'", "`", "v", "g" }
+    end,
+  },
+  {
     "stevearc/conform.nvim",
     event = 'BufWritePre',
     opts = require "configs.conform",
@@ -8,9 +15,26 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "pyright"
+        "pyright",
+        -- TypeScript / Svelte
+        "svelte-language-server",
+        -- not enabled as an LSP; provides the fallback tsserver for typescript-tools
+        "typescript-language-server",
+        "eslint-lsp",
+        "tailwindcss-language-server",
+        "emmet-language-server",
+        "prettierd",
+        "terraform-ls",
+        "tflint",
       },
     },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    event = { "BufWritePost", "BufReadPost", "InsertLeave" },
+    config = function()
+      require "configs.lint"
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -79,6 +103,15 @@ return {
         "hcl",
         "docker_compose",
         "yaml",
+        -- TypeScript / Svelte
+        "svelte",
+        "typescript",
+        "tsx",
+        "javascript",
+        "jsdoc",
+        "html",
+        "css",
+        "json",
       },
       highlight = { enable = true },
       indent = { enable = true },
@@ -192,5 +225,13 @@ return {
   {
     "ThePrimeagen/vim-be-good",
     cmd = "VimBeGood",
+  },
+  {
+    "jake-stewart/multicursor.nvim",
+    branch = "main",
+    event = "VeryLazy",
+    config = function()
+      require("user.multicursor")
+    end,
   },
 }

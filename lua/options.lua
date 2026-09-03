@@ -2,11 +2,21 @@ require "nvchad.options"
 
 -- add yours here!
 
+-- Neovim's builtin *.tf detection is ambiguous (Terraform vs TinyFugue) and
+-- resolves it by sniffing buffer content — but Telescope's previewer only
+-- passes the filename, not the buffer, so the sniff never runs and it falls
+-- back to "tf" (TinyFugue), losing terraform's treesitter highlighting in
+-- preview windows. Force the unambiguous mapping.
+vim.filetype.add { extension = { tf = "terraform" } }
+
 local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 o.number = true
 o.relativenumber = true
 o.diffopt = "internal,filler,closeoff"
+-- Border for every floating window (LSP hover, signature help, diagnostics).
+-- Without this they render flush against the buffer text and are hard to read.
+o.winborder = "rounded"
 o.scrolloff = 1
 o.foldenable = false
 o.foldmethod = "expr"

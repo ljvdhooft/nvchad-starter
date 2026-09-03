@@ -34,6 +34,8 @@ require "autocmds"
 
 vim.schedule(function()
   require "mappings"
+  require "user.tsc"
+  require "user.lsp_ui"
 end)
 
 vim.lsp.enable('pyright')
