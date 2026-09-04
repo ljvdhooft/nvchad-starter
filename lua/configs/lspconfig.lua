@@ -60,7 +60,10 @@ local terraform_codelens_ns = vim.api.nvim_create_namespace "user_terraform_code
 local function show_terraform_codelens(bufnr)
   local params = { textDocument = vim.lsp.util.make_text_document_params(bufnr) }
   vim.lsp.buf_request(bufnr, "textDocument/codeLens", params, function(err, result)
-    if err or not result then
+    -- The buffer can be closed/wiped between issuing the request and the
+    -- response landing (e.g. closing it right after switching away); the
+    -- line numbers in `result` would then be stale or out of range.
+    if err or not result or not vim.api.nvim_buf_is_valid(bufnr) then
       return
     end
     vim.api.nvim_buf_clear_namespace(bufnr, terraform_codelens_ns, 0, -1)
@@ -68,12 +71,15 @@ local function show_terraform_codelens(bufnr)
     -- terraform-ls can send several lenses for the same line; merge them into
     -- one extmark so they render on a single eol virt_text instead of each
     -- stacking on its own virtual line.
+    local line_count = vim.api.nvim_buf_line_count(bufnr)
     local titles_by_line = {}
     for _, lens in ipairs(result) do
       if lens.command and lens.command.title ~= "" then
         local line = lens.range.start.line
-        titles_by_line[line] = titles_by_line[line] or {}
-        table.insert(titles_by_line[line], lens.command.title)
+        if line < line_count then
+          titles_by_line[line] = titles_by_line[line] or {}
+          table.insert(titles_by_line[line], lens.command.title)
+        end
       end
     end
 
