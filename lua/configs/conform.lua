@@ -26,12 +26,20 @@ local options = {
     javascript = prettier,
     javascriptreact = prettier,
     json = prettier,
-    jsonc = prettier,
+    jsonc = { "prettier_nocomma" },
     css = prettier,
     scss = prettier,
     html = prettier,
     yaml = prettier,
     markdown = prettier,
+  },
+
+  -- Waybar's JSON parser rejects trailing commas, which prettier adds by default.
+  formatters = {
+    prettier_nocomma = {
+      command = "prettier",
+      args = { "--stdin-filepath", "$FILENAME", "--trailing-comma", "none" },
+    },
   },
 
   format_on_save = {
