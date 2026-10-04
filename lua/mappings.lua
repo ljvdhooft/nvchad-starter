@@ -17,6 +17,13 @@ map("n", "g<A-h>", "<cmd>tabmove -1<CR>", { desc = "Move tab left" })
 map("n", "g<A-l>", "<cmd>tabmove +1<CR>", { desc = "Move tab right" })
 map("n", "gx", "<cmd>tabclose<CR>", { desc = "Close tab" })
 
+-- `<leader>x` (close buffer) is NvChad's. These go through the same
+-- close_buffer, which uses `confirm bd` — modified buffers prompt to save.
+map("n", "<leader>X", function() require("nvchad.tabufline").closeAllBufs(true) end,
+  { desc = "Close all buffers" })
+map("n", "<leader><C-x>", function() require("nvchad.tabufline").closeAllBufs(false) end,
+  { desc = "Close all other buffers" })
+
 -- Delete/change to black hole register (don't clobber clipboard)
 map({ "n", "v" }, "d", '"_d', { desc = "Delete (no clipboard)" })
 map("n", "dd", '"_dd', { desc = "Delete line (no clipboard)" })

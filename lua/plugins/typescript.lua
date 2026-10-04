@@ -71,11 +71,13 @@ return {
     cmd = "Trouble",
     opts = { focus = true },
     keys = {
-      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (workspace)" },
-      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Diagnostics (buffer)" },
-      { "<leader>xs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (outline)" },
-      { "<leader>xr", "<cmd>Trouble lsp toggle<cr>", desc = "LSP references/definitions" },
-      { "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix list" },
+      -- Kept off the `<leader>x` prefix: NvChad maps `<leader>x` to close-buffer,
+      -- so any `<leader>x?` mapping makes it wait out `timeoutlen` before firing.
+      { "<leader>qq", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (workspace)" },
+      { "<leader>qQ", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Diagnostics (buffer)" },
+      { "<leader>qs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (outline)" },
+      { "<leader>qr", "<cmd>Trouble lsp toggle<cr>", desc = "LSP references/definitions" },
+      { "<leader>ql", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix list" },
     },
   },
 

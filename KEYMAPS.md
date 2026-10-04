@@ -281,6 +281,8 @@ Four layers, roughly easiest → deepest:
 | `<A-h>` `<A-l>`                      | n        | move buffer left / right                                     |
 | `d dd D / c cc C / x`                | n,v      | delete/change to black hole (no clipboard)                   |
 | `<leader>d` `<leader>dd` `<leader>D` | n,v      | delete to system clipboard                                   |
+| `<leader>X`                          | n        | close all buffers (prompts to save)                          |
+| `<leader><C-x>`                      | n        | close all other buffers (prompts to save)                    |
 | `<leader>z`                          | n        | toggle window maximizer                                      |
 | `<A-k>`                              | n (tree) | NvimTree file info popup                                     |
 | `<leader>gp`                         | n        | preview git hunk (interactive)                               |
@@ -300,6 +302,9 @@ Four layers, roughly easiest → deepest:
 | `<leader>ws`                         | n        | LSP workspace symbols (Telescope, falls back if unsupported) |
 | `<leader>ds`                         | n        | buffer diagnostics (Telescope)                               |
 | `<leader>wd`                         | n        | workspace diagnostics (Telescope)                            |
+| `<leader>qq` `<leader>qQ`            | n        | Trouble diagnostics workspace / buffer                       |
+| `<leader>qs` `<leader>qr`            | n        | Trouble symbols outline / LSP references                     |
+| `<leader>ql`                         | n        | Trouble quickfix list                                        |
 
 ### NvChad defaults — editor / UI
 
