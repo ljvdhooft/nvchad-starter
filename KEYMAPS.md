@@ -305,6 +305,9 @@ Four layers, roughly easiest → deepest:
 | `<leader>qq` `<leader>qQ`            | n        | Trouble diagnostics workspace / buffer                       |
 | `<leader>qs` `<leader>qr`            | n        | Trouble symbols outline / LSP references                     |
 | `<leader>ql`                         | n        | Trouble quickfix list                                        |
+| `<leader>ab`                         | n        | Claude: add current buffer to context                        |
+| `<leader>as`                         | v / tree | Claude: send selection / add file under cursor               |
+| `<leader>aa` `<leader>ad`            | n        | Claude: accept / deny proposed diff                          |
 
 ### NvChad defaults — editor / UI
 
